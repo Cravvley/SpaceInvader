@@ -18,6 +18,8 @@ public:
     ~Widget();
 
 private:
+    const int WIDTH=815;
+    const int HEIGHT=600;
     Ui::Widget *ui;
     QGraphicsScene * scene;
     Spacecraft * spacecraft;

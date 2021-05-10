@@ -2,5 +2,6 @@
     <qresource prefix="/graphics">
         <file>imgs/Space.gif</file>
         <file>imgs/Spacecraft.png</file>
+        <file>imgs/bullet.png</file>
     </qresource>
 </RCC>

@@ -2,9 +2,9 @@
 #include "spacecraft.h"
 #include <QKeyEvent>
 
-Spacecraft::Spacecraft(double _speed,QGraphicsScene *_scene,QGraphicsItem *parent):
+Spacecraft::Spacecraft(double _speed,QGraphicsItem *parent):
     speed(_speed),
-    scene(_scene),
+   // scene(_scene),
     QGraphicsPixmapItem(parent)
 
 {
@@ -16,12 +16,12 @@ void Spacecraft::keyPressEvent(QKeyEvent *event){
 
     if(event->key()==Qt::Key_Space){
         Bullet *bullet= new Bullet(-10);
-        scene->addItem(bullet);
+        this->scene()->addItem(bullet);
         bullet->setX(this->pos().x()+20);
         bullet->setY(this->pos().y()-50);
     }
 
-    if(event->key()==Qt::Key_D&&this->pos().x()<=(scene->width() - this->pixmap().size().width())){
+    if(event->key()==Qt::Key_D&&this->pos().x()<=(this->scene()->width() - this->pixmap().size().width())){
             moveBy(speed,0);
 
     }

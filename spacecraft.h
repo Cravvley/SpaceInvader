@@ -7,13 +7,12 @@
 class Spacecraft : public QGraphicsPixmapItem
 {
 public:
-    Spacecraft(double _speed,QGraphicsScene *_scene,QGraphicsItem *parent=nullptr);
+    Spacecraft(double _speed,QGraphicsItem *parent=nullptr);
 
 protected:
     void keyPressEvent(QKeyEvent *event);
 
 private:
-    QGraphicsScene * scene;
     double speed;
 };
 

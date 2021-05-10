@@ -3,5 +3,6 @@
         <file>imgs/Space.gif</file>
         <file>imgs/Spacecraft.png</file>
         <file>imgs/bullet.png</file>
+        <file>imgs/alien.png</file>
     </qresource>
 </RCC>

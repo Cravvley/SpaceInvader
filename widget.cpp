@@ -23,7 +23,7 @@ Widget::Widget(QWidget *parent)
     spacecraft->setY(HEIGHT-spacecraft->pixmap().height()-10);
 
     int Y=20; //alien started y position
-    for(int i=0;i<5;++i){
+    for(int i=0;i<1;++i){
         int X=-30; //alien started x position
         for(int i=0;i<10;++i){
             X+=60;
@@ -32,7 +32,7 @@ Widget::Widget(QWidget *parent)
             alien->setX(X);
             alien->setY(Y);
         }
-        Y+=40;
+        Y+=90;
     }
 
     QTimer *timer = new QTimer(scene);

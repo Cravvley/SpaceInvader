@@ -16,7 +16,7 @@ private:
     qreal moveX;
     qreal moveY;
     int moveCount=0;
-    void shotThatGuy();
+    void shotThatGuy(int min,int max);
     void move();
 };
 

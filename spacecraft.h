@@ -14,6 +14,7 @@ protected:
 
 private:
     double speed;
+    void shotThatAlien();
 };
 
 #endif // SPACECRAFT_H

@@ -22,10 +22,18 @@ Widget::Widget(QWidget *parent)
     spacecraft->setX(WIDTH/2);
     spacecraft->setY(HEIGHT-spacecraft->pixmap().height()-10);
 
-    Alien *alien=new Alien();
-    scene->addItem(alien);
-    alien->setX(200);
-    alien->setY(200);
+    int Y=20; //alien started y position
+    for(int i=0;i<5;++i){
+        int X=-30; //alien started x position
+        for(int i=0;i<10;++i){
+            X+=60;
+            Alien *alien=new Alien(0.75,0.25);
+            scene->addItem(alien);
+            alien->setX(X);
+            alien->setY(Y);
+        }
+        Y+=40;
+    }
 
     QTimer *timer = new QTimer(scene);
     timer->start(30);

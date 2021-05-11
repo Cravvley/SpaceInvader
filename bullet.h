@@ -14,6 +14,7 @@ protected:
 
 private:
     double speed;
+    void warningBulletInTheEye();
 };
 
 #endif // BULLET_H

@@ -15,10 +15,7 @@ Spacecraft::Spacecraft(double _speed,QGraphicsItem *parent):
 void Spacecraft::keyPressEvent(QKeyEvent *event){
 
     if(event->key()==Qt::Key_Space){
-        Bullet *bullet= new Bullet(-10);
-        this->scene()->addItem(bullet);
-        bullet->setX(this->pos().x()+20);
-        bullet->setY(this->pos().y()-50);
+        shotThatAlien();
     }
 
     if(event->key()==Qt::Key_D&&this->pos().x()<=(this->scene()->width() - this->pixmap().size().width())){
@@ -28,4 +25,12 @@ void Spacecraft::keyPressEvent(QKeyEvent *event){
     else if(event->key()==Qt::Key_A&&this->pos().x()>=0){
         moveBy(-speed,0);
     }
+}
+
+void Spacecraft::shotThatAlien()
+{
+    Bullet *bullet= new Bullet(-10);
+    this->scene()->addItem(bullet);
+    bullet->setX(this->pos().x()+20);
+    bullet->setY(this->pos().y()-50);
 }

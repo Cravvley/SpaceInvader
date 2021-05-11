@@ -23,8 +23,8 @@ private:
     Ui::Widget *ui;
     QGraphicsScene * scene;
     Spacecraft * spacecraft;
-    bool isEnd;
-    bool winFirstStage;
+    bool isEnd=false;
+    bool winFirstStage=false;
     void addText(QString str);
 
 public slots:

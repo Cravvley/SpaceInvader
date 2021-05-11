@@ -71,11 +71,17 @@ void Widget::endGame()
         }
     }
 
-    if(alienCounter==0&&isEnd)    {
-        scene->clear();
-        addText("You won");
-        scene->disconnect(SIGNAL(timeout()),this,SLOT(endGame()));
-
+    if(alienCounter==0&&!winFirstStage){
+        winFirstStage=true;
+        Alien *alien=new Alien(0.75,0.25);
+        scene->addItem(alien);
+        alien->setX(100);
+        alien->setY(100);
+    }
+    else if(alienCounter==0&&winFirstStage&&!isEnd){
+                scene->clear();
+                addText("You won");
+                scene->disconnect(SIGNAL(timeout()),this,SLOT(endGame()));
     }
     else if(!spacecraftExist){
         isEnd=true;
@@ -83,6 +89,5 @@ void Widget::endGame()
         addText("You lost");
         scene->disconnect(SIGNAL(timeout()),this,SLOT(endGame()));
     }
-
 }
 

@@ -9,6 +9,9 @@ Alien::Alien(double _moveX,double _moveY,QGraphicsItem *_parent):
     moveY(_moveY)
 {
     setPixmap(QPixmap(":/graphics/imgs/alien.png"));
+    player=new QMediaPlayer(this->scene());
+    player->setMedia(QUrl("qrc:/media/media/laserShoot.mp3"));
+
 }
 
 void Alien::advance(int phase)
@@ -28,6 +31,8 @@ void Alien::shotThatGuy(int min, int max)
         this->scene()->addItem(bullet);
         bullet->setX(this->pos().x()+20);
         bullet->setY(this->pos().y()+50);
+
+        player->play();
     }
 }
 

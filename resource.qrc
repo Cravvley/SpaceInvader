@@ -5,4 +5,8 @@
         <file>imgs/bullet.png</file>
         <file>imgs/alien.png</file>
     </qresource>
+    <qresource prefix="/media">
+        <file>media/laserShoot.mp3</file>
+        <file>media/destroyEnemy.mp3</file>
+    </qresource>
 </RCC>

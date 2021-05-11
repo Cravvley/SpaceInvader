@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QtGlobal>
+#include <QMediaPlayer>
 
 class Alien:public QGraphicsPixmapItem
 {
@@ -16,6 +17,7 @@ private:
     qreal moveX;
     qreal moveY;
     int moveCount=0;
+    QMediaPlayer *player;
     void shotThatGuy(int min,int max);
     void move(int howManyMoveBeforeChangeDirection);
 };

@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
+#include <QMediaPlayer>
 
 class Spacecraft : public QGraphicsPixmapItem
 {
@@ -13,6 +14,7 @@ protected:
     void keyPressEvent(QKeyEvent *event);
 
 private:
+    QMediaPlayer *player;
     double speed;
     void shotThatAlien();
 };

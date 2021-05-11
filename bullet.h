@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
+#include <QMediaPlayer>
 
 class Bullet:public QGraphicsPixmapItem
 {
@@ -14,6 +15,7 @@ protected:
 
 private:
     double speed;
+    QMediaPlayer *player;
     void warningBulletInTheEye();
     QGraphicsItem *thisGuyIsMyBoss;
 };

@@ -9,6 +9,8 @@ Spacecraft::Spacecraft(double _speed,QGraphicsItem *parent):
 {
     setPixmap(QPixmap(":/graphics/imgs/Spacecraft.png"));
     setFlag(QGraphicsItem::ItemIsFocusable);
+    player=new QMediaPlayer(this->scene());
+    player->setMedia(QUrl("qrc:/media/media/laserShoot.mp3"));
 }
 
 void Spacecraft::keyPressEvent(QKeyEvent *event){
@@ -32,4 +34,6 @@ void Spacecraft::shotThatAlien()
     this->scene()->addItem(bullet);
     bullet->setX(this->pos().x()+20);
     bullet->setY(this->pos().y()-50);
+
+    player->play();
 }

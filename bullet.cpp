@@ -9,7 +9,8 @@ Bullet::Bullet(double _speed,QGraphicsItem *_thisGuyIsMyBoss,QGraphicsItem *_par
     speed(_speed)
 {
     setPixmap(QPixmap(":/graphics/imgs/bullet.png"));
-    setFlag(QGraphicsItem::ItemIsMovable);
+    player=new QMediaPlayer(this->scene());
+    player->setMedia(QUrl("qrc:/media/media/destroyEnemy.mp3"));
 }
 
 void Bullet::advance(int phase){
@@ -36,12 +37,13 @@ void Bullet::warningBulletInTheEye()
                 Alien *item_alien_cast=dynamic_cast<Alien*>(item);
 
                 if(alien_boss_cast&&!item_alien_cast){
+                    player->play();
                     this->scene()->removeItem(item);
-                      delete this;
-                }
+                    delete this;                }
                 else if(spacecraft_boss_cast&&item_alien_cast){
+                    player->play();
                     this->scene()->removeItem(item);
-                      delete this;
+                    delete this;
                 }
               }
         }

@@ -17,7 +17,7 @@ private:
     qreal moveY;
     int moveCount=0;
     void shotThatGuy(int min,int max);
-    void move();
+    void move(int howManyMoveBeforeChangeDirection);
 };
 
 #endif // ALIEN_H

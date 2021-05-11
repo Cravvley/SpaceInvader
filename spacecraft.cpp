@@ -4,7 +4,6 @@
 
 Spacecraft::Spacecraft(double _speed,QGraphicsItem *parent):
     speed(_speed),
-   // scene(_scene),
     QGraphicsPixmapItem(parent)
 
 {
@@ -29,7 +28,7 @@ void Spacecraft::keyPressEvent(QKeyEvent *event){
 
 void Spacecraft::shotThatAlien()
 {
-    Bullet *bullet= new Bullet(-10);
+    Bullet *bullet= new Bullet(-10,this);
     this->scene()->addItem(bullet);
     bullet->setX(this->pos().x()+20);
     bullet->setY(this->pos().y()-50);

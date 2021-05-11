@@ -2,7 +2,6 @@
 #include "ui_widget.h"
 #include "spacecraft.h"
 #include"alien.h"
-#include<QDebug>
 #include <QTimer>
 #include <QGraphicsItem>
 
@@ -16,14 +15,14 @@ Widget::Widget(QWidget *parent)
     scene->setBackgroundBrush(QPixmap(":/graphics/imgs/Space.gif"));
     ui->spaceInvaderView->setScene(scene);
 
-    spacecraft= new Spacecraft(10);
+    spacecraft= new Spacecraft(13);
     spacecraft->setFocus();
     scene->addItem(spacecraft);
     spacecraft->setX(WIDTH/2);
     spacecraft->setY(HEIGHT-spacecraft->pixmap().height()-10);
 
     int Y=20; //alien started y position
-    for(int i=0;i<1;++i){
+    for(int i=0;i<4;++i){
         int X=-30; //alien started x position
         for(int i=0;i<10;++i){
             X+=60;

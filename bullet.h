@@ -7,7 +7,7 @@
 class Bullet:public QGraphicsPixmapItem
 {
 public:
-    Bullet(double speed,QGraphicsItem *parent=nullptr);
+    Bullet(double speed,QGraphicsItem *_thisGuyIsMyBoss=nullptr,QGraphicsItem *parent=nullptr);
 
 protected:
     void advance(int phase);
@@ -15,6 +15,7 @@ protected:
 private:
     double speed;
     void warningBulletInTheEye();
+    QGraphicsItem *thisGuyIsMyBoss;
 };
 
 #endif // BULLET_H

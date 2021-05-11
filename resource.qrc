@@ -1,9 +1,10 @@
 <RCC>
     <qresource prefix="/graphics">
-        <file>imgs/Space.gif</file>
         <file>imgs/Spacecraft.png</file>
         <file>imgs/bullet.png</file>
         <file>imgs/alien.png</file>
+        <file>imgs/shield.png</file>
+        <file>imgs/Space.gif</file>
     </qresource>
     <qresource prefix="/media">
         <file>media/laserShoot.mp3</file>

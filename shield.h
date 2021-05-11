@@ -1,11 +1,13 @@
 #ifndef SHIELD_H
 #define SHIELD_H
 
+#include <QGraphicsPixmapItem>
 
-class Shield
+class Shield:public QGraphicsPixmapItem
 {
 public:
-    Shield();
+    Shield(QGraphicsItem *parent=nullptr);
+
 };
 
 #endif // SHIELD_H

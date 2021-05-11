@@ -2,6 +2,7 @@
 #include "ui_widget.h"
 #include "spacecraft.h"
 #include"alien.h"
+#include"shield.h"
 #include <QTimer>
 #include <QGraphicsItem>
 
@@ -15,24 +16,15 @@ Widget::Widget(QWidget *parent)
     scene->setBackgroundBrush(QPixmap(":/graphics/imgs/Space.gif"));
     ui->spaceInvaderView->setScene(scene);
 
-    spacecraft= new Spacecraft(13);
+    spacecraft= new Spacecraft(15);
     spacecraft->setFocus();
     scene->addItem(spacecraft);
-    spacecraft->setX(WIDTH/2);
+    spacecraft->setX(WIDTH/2-200);
     spacecraft->setY(HEIGHT-spacecraft->pixmap().height()-10);
 
-    int Y=20; //alien started y position
-    for(int i=0;i<1;++i){
-        int X=-30; //alien started x position
-        for(int i=0;i<1;++i){
-            X+=60;
-            Alien *alien=new Alien(0.75,0.25);
-            scene->addItem(alien);
-            alien->setX(X);
-            alien->setY(Y);
-        }
-        Y+=90;
-    }
+    alienGenerator(3,10,60,90);
+    shieldGenerator(3,6,50,70,10);
+    shieldGenerator(3,6,50,70,540);
 
     QTimer *timer = new QTimer(scene);
     timer->start(30);
@@ -56,6 +48,48 @@ void Widget::addText(QString str)
     text->setPos(WIDTH/2-150,HEIGHT/2-50);
 }
 
+void Widget::alienGenerator(int rows, int col, int xOffset, int yOffset)
+{
+    int Y=5; //alien started y position
+    for(int i=0;i<rows;++i){
+        int X=-30; //alien started x position
+        for(int j=0;j<col;++j){
+            X+=xOffset;
+            Alien *alien=new Alien(1.15,0.35);
+            scene->addItem(alien);
+            alien->setX(X);
+            alien->setY(Y);
+        }
+        Y+=yOffset;
+    }
+}
+
+void Widget::shieldGenerator(int rows, int col, int xOffset, int yOffset,int startedX)
+{
+        int Y=scene->height()-350; //shield started y position
+        for(int i=0;i<rows;++i){
+            int X=startedX; //shield started x position
+            for(int j=0;j<col;++j){
+                X+=xOffset;
+                Shield *shield=new Shield();
+                scene->addItem(shield);
+                shield->setX(X);
+                shield->setY(Y);
+            }
+            Y+=yOffset;
+        }
+}
+
+
+void Widget::nextStage()
+{
+    winFirstStage=true;
+    Alien *alien=new Alien(0.75,0.25);
+    scene->addItem(alien);
+    alien->setX(100);
+    alien->setY(100);
+}
+
 void Widget::endGame()
 {
     int alienCounter=0;
@@ -72,22 +106,16 @@ void Widget::endGame()
     }
 
     if(alienCounter==0&&!winFirstStage){
-        winFirstStage=true;
-        Alien *alien=new Alien(0.75,0.25);
-        scene->addItem(alien);
-        alien->setX(100);
-        alien->setY(100);
+       nextStage();
     }
     else if(alienCounter==0&&winFirstStage&&!isEnd){
-                scene->clear();
-                addText("You won");
-                scene->disconnect(SIGNAL(timeout()),this,SLOT(endGame()));
+        scene->clear();
+        addText("You won");
     }
     else if(!spacecraftExist){
         isEnd=true;
         scene->clear();
         addText("You lost");
-        scene->disconnect(SIGNAL(timeout()),this,SLOT(endGame()));
     }
 }
 

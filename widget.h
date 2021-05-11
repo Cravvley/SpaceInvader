@@ -18,14 +18,17 @@ public:
     ~Widget();
 
 private:
-    const int WIDTH=815;
-    const int HEIGHT=600;
+    const int WIDTH=940;
+    const int HEIGHT=750;
     Ui::Widget *ui;
     QGraphicsScene * scene;
     Spacecraft * spacecraft;
     bool isEnd=false;
     bool winFirstStage=false;
     void addText(QString str);
+    void alienGenerator(int rows,int col,int xOffset,int yOffset);
+    void shieldGenerator(int rows,int col, int xOffset,int yOffset,int startedX);
+    void nextStage();
 
 public slots:
     void endGame();

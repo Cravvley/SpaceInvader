@@ -1,5 +1,6 @@
 #include "bullet.h"
 #include "Alien.h"
+#include "shield.h"
 #include "spacecraft.h"
 
 Bullet::Bullet(double _speed,QGraphicsItem *_thisGuyIsMyBoss,QGraphicsItem *_parent):
@@ -33,19 +34,26 @@ void Bullet::warningBulletInTheEye()
             Spacecraft *spacecraft_boss_cast=dynamic_cast<Spacecraft*>(thisGuyIsMyBoss);
 
             Alien *item_alien_cast=dynamic_cast<Alien*>(item);
+            Shield *shield_cast=dynamic_cast<Shield*>(item);
 
             if(!bullet_cast){
                 if(alien_boss_cast&&!item_alien_cast){
-                    player->play();
-                    this->scene()->removeItem(item);
-                    delete this;
+                    boomHeadShot(item);
                 }
                 else if(spacecraft_boss_cast&&item_alien_cast){
-                    player->play();
-                    this->scene()->removeItem(item);
-                    delete this;
+                    boomHeadShot(item);
+                }
+                else if(shield_cast){
+                    boomHeadShot(item);
                 }
             }
         }
     }
+}
+
+void Bullet::boomHeadShot(QGraphicsItem *item)
+{
+    player->play();
+    this->scene()->removeItem(item);
+    delete this;
 }

@@ -18,7 +18,7 @@ void Alien::advance(int phase)
 {
     if(phase){
         shotThatGuy(1,2000);
-        move(200);
+        move(250);
     }
 }
 

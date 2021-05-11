@@ -2,6 +2,7 @@
 #define BULLET_H
 
 #include <QGraphicsPixmapItem>
+#include<QGraphicsItem>
 #include <QGraphicsScene>
 #include <QMediaPlayer>
 #include<QObject>
@@ -20,9 +21,7 @@ private:
     QMediaPlayer *player;
     void warningBulletInTheEye();
     QGraphicsItem *thisGuyIsMyBoss;
-
-
-
+    void boomHeadShot(QGraphicsItem *item);
 };
 
 #endif // BULLET_H

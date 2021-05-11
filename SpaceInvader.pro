@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     alien.cpp \
+    alienboss.cpp \
     bullet.cpp \
     main.cpp \
     shield.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     alien.h \
+    alienboss.h \
     bullet.h \
     shield.h \
     spacecraft.h \

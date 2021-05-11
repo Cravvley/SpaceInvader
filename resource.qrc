@@ -5,6 +5,7 @@
         <file>imgs/alien.png</file>
         <file>imgs/shield.png</file>
         <file>imgs/Space.gif</file>
+        <file>imgs/alienBoss.png</file>
     </qresource>
     <qresource prefix="/media">
         <file>media/laserShoot.mp3</file>

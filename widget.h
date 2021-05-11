@@ -25,6 +25,7 @@ private:
     Spacecraft * spacecraft;
     bool isEnd=false;
     bool winFirstStage=false;
+
     void addText(QString str);
     void alienGenerator(int rows,int col,int xOffset,int yOffset);
     void shieldGenerator(int rows,int col, int xOffset,int yOffset,int startedX);

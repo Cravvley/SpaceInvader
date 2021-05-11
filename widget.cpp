@@ -2,6 +2,7 @@
 #include "ui_widget.h"
 #include "spacecraft.h"
 #include"alien.h"
+#include"alienboss.h"
 #include"shield.h"
 #include <QTimer>
 #include <QGraphicsItem>
@@ -22,7 +23,7 @@ Widget::Widget(QWidget *parent)
     spacecraft->setX(WIDTH/2-200);
     spacecraft->setY(HEIGHT-spacecraft->pixmap().height()-10);
 
-    alienGenerator(3,10,60,90);
+    alienGenerator(1,1,60,90);
     shieldGenerator(3,6,50,70,10);
     shieldGenerator(3,6,50,70,540);
 
@@ -84,31 +85,36 @@ void Widget::shieldGenerator(int rows, int col, int xOffset, int yOffset,int sta
 void Widget::nextStage()
 {
     winFirstStage=true;
-    Alien *alien=new Alien(0.75,0.25);
-    scene->addItem(alien);
-    alien->setX(100);
-    alien->setY(100);
+    AlienBoss *alienBoss=new AlienBoss(7,0.25);
+    scene->addItem(alienBoss);
+    alienBoss->setX(100);
+    alienBoss->setY(100);
 }
 
 void Widget::endGame()
 {
     int alienCounter=0;
+    int alienBossCounter=0;
     bool spacecraftExist=false;
     auto items=scene->items();
     for(auto item:items){
         Spacecraft *spacecraft_cast=dynamic_cast<Spacecraft*>(item);
         Alien *alien_cast=dynamic_cast<Alien*>(item);
+        AlienBoss *alienBoss_cast=dynamic_cast<AlienBoss*>(item);
         if(spacecraft_cast){
             spacecraftExist=true;
         }else if(alien_cast){
             alienCounter++;
+        }
+        else if(alienBoss_cast){
+                    alienBossCounter++;
         }
     }
 
     if(alienCounter==0&&!winFirstStage){
        nextStage();
     }
-    else if(alienCounter==0&&winFirstStage&&!isEnd){
+    else if(alienBossCounter==0&&winFirstStage&&!isEnd){
         scene->clear();
         addText("You won");
     }

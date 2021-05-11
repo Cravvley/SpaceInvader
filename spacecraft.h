@@ -9,7 +9,7 @@ class Spacecraft : public QGraphicsPixmapItem
 {
 public:
     Spacecraft(double _speed,QGraphicsItem *parent=nullptr);
-
+    void destroyThisGuy();
 protected:
     void keyPressEvent(QKeyEvent *event);
 

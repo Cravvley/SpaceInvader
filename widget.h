@@ -23,5 +23,11 @@ private:
     Ui::Widget *ui;
     QGraphicsScene * scene;
     Spacecraft * spacecraft;
+    bool isEnd;
+    bool winFirstStage;
+    void addText(QString str);
+
+public slots:
+    void endGame();
 };
 #endif // WIDGET_H

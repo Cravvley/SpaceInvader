@@ -28,6 +28,8 @@ void Spacecraft::keyPressEvent(QKeyEvent *event){
     }
 }
 
+
+
 void Spacecraft::shotThatAlien()
 {
     Bullet *bullet= new Bullet(-10,this);

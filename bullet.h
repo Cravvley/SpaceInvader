@@ -4,9 +4,11 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QMediaPlayer>
+#include<QObject>
 
 class Bullet:public QGraphicsPixmapItem
 {
+
 public:
     Bullet(double speed,QGraphicsItem *_thisGuyIsMyBoss=nullptr,QGraphicsItem *parent=nullptr);
 
@@ -18,6 +20,9 @@ private:
     QMediaPlayer *player;
     void warningBulletInTheEye();
     QGraphicsItem *thisGuyIsMyBoss;
+
+
+
 };
 
 #endif // BULLET_H

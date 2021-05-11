@@ -4,9 +4,7 @@
 #include <QGlobal.h>
 
 AlienBoss::AlienBoss(double _moveX,double _moveY,QGraphicsItem *_parent):
-    QGraphicsPixmapItem(_parent),
-    moveX(_moveX),
-    moveY(_moveY)
+    Alien(_moveX,_moveY,_parent)
 {
     setPixmap(QPixmap(":/graphics/imgs/alienBoss.png"));
     player=new QMediaPlayer(this->scene());
@@ -17,7 +15,7 @@ AlienBoss::AlienBoss(double _moveX,double _moveY,QGraphicsItem *_parent):
 void AlienBoss::advance(int phase)
 {
     if(phase){
-        shotThatGuy(1,50);
+        shotThatGuy(1,40);
         move(100);
     }
 }
@@ -35,15 +33,3 @@ void AlienBoss::shotThatGuy(int min, int max)
         player->play();
     }
 }
-
-void AlienBoss::move(int howManyMoveBeforeChangeDirection)
-{
-    if(moveCount==howManyMoveBeforeChangeDirection){
-        moveX*=-1;
-        moveY*=-1;
-        moveCount=0;
-    }
-    moveCount++;
-    moveBy(moveX,moveY);
-}
-

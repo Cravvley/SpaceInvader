@@ -11,14 +11,12 @@ public:
     Alien(qreal _moveX=0.5,qreal _moveY=0.5,QGraphicsItem *parent=nullptr);
 
 protected:
-    void advance(int phase);
-
-private:
+    virtual void advance(int phase);
     qreal moveX;
     qreal moveY;
     int moveCount=0;
     QMediaPlayer *player;
-    void shotThatGuy(int min,int max);
+    virtual void shotThatGuy(int min,int max);
     void move(int howManyMoveBeforeChangeDirection);
 };
 

@@ -43,10 +43,7 @@ void Bullet::warningBulletInTheEye()
                 if(alien_boss_cast&&!item_alien_cast){
                     boomHeadShot(item);
                 }
-                else if(spacecraft_boss_cast&&(item_alien_cast||item_alienBoss_cast)){
-                    boomHeadShot(item);
-                }
-                else if(alienBoss_boss_cast&&!item_alienBoss_cast){
+                else if(spacecraft_boss_cast&&(item_alien_cast)){
                     boomHeadShot(item);
                 }
                 else if(shield_cast){

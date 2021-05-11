@@ -28,6 +28,7 @@ private:
 
     void addText(QString str);
     void alienGenerator(int rows,int col,int xOffset,int yOffset);
+    void alienBossGenerator(int xStartedPos,int yStartedPos);
     void shieldGenerator(int rows,int col, int xOffset,int yOffset,int startedX);
     void nextStage();
 

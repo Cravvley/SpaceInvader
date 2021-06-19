@@ -18,6 +18,8 @@ public:
 private slots:
     void on_startGameButton_clicked();
 
+    void on_endGameButton_clicked();
+
 private:
     Ui::StartGame *ui;
 };

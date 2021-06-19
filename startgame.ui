@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>240</y>
+     <y>190</y>
      <width>571</width>
      <height>111</height>
     </rect>
@@ -71,6 +71,24 @@
    </property>
    <property name="text">
     <string>by Niekurzak Daniel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="endGameButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>310</y>
+     <width>571</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>End game</string>
    </property>
   </widget>
  </widget>

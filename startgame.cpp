@@ -22,3 +22,8 @@ void StartGame::on_startGameButton_clicked()
     w->show();
     this->destroy();
 }
+
+void StartGame::on_endGameButton_clicked()
+{
+        QCoreApplication::exit();
+}

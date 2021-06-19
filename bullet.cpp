@@ -57,6 +57,8 @@ void Bullet::warningBulletInTheEye()
 void Bullet::boomHeadShot(QGraphicsItem *item)
 {
     player->play();
-    this->scene()->removeItem(item);
+    if(this->scene()->items().contains(item)){
+        this->scene()->removeItem(item);
+    }
     delete this;
 }

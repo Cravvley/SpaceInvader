@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include "spacecraft.h"
+#include "startgame.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -25,6 +26,8 @@ private:
     Spacecraft * spacecraft;
     bool isEnd=false;
     bool winFirstStage=false;
+    bool destroyWidget=false;
+    bool blockDestroyWidget=false;
 
     void addText(QString str);
     void alienGenerator(int rows,int col,int xOffset,int yOffset);

@@ -106,7 +106,6 @@ void Widget::endGame()
     for(auto item:items){
         Spacecraft *spacecraft_cast=dynamic_cast<Spacecraft*>(item);
         Alien *alien_cast=dynamic_cast<Alien*>(item);
-        AlienBoss *alienBoss_cast=dynamic_cast<AlienBoss*>(item);
         if(spacecraft_cast){
             spacecraftExist=true;
         }else if(alien_cast){
@@ -114,17 +113,26 @@ void Widget::endGame()
         }
     }
 
-    if(alienCounter==0&&!winFirstStage){
+    if(destroyWidget){
+            _sleep(1000);
+            StartGame *sg= new StartGame();
+            sg->show();
+            destroyWidget=false;
+            blockDestroyWidget=true;
+            this->destroy();
+        }
+    else if(alienCounter==0&&!winFirstStage&&!blockDestroyWidget){
        nextStage();
     }
-    else if(alienCounter==0&&winFirstStage&&!isEnd){
+    else if(alienCounter==0&&winFirstStage&&!isEnd&&!blockDestroyWidget){
         scene->clear();
         addText("You won");
+        destroyWidget=true;
     }
-    else if(!spacecraftExist){
+    else if(!spacecraftExist&&!blockDestroyWidget){
         isEnd=true;
         scene->clear();
         addText("You lost");
+        destroyWidget=true;
     }
 }
-

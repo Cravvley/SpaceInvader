@@ -20,5 +20,5 @@ void StartGame::on_startGameButton_clicked()
 {
     Widget *w= new Widget();
     w->show();
-    this->hide();
+    this->destroy();
 }

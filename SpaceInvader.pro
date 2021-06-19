@@ -15,6 +15,7 @@ SOURCES += \
     main.cpp \
     shield.cpp \
     spacecraft.cpp \
+    startgame.cpp \
     widget.cpp
 
 HEADERS += \
@@ -23,9 +24,11 @@ HEADERS += \
     bullet.h \
     shield.h \
     spacecraft.h \
+    startgame.h \
     widget.h
 
 FORMS += \
+    startgame.ui \
     widget.ui
 
 # Default rules for deployment.

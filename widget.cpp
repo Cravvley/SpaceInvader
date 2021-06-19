@@ -23,7 +23,7 @@ Widget::Widget(QWidget *parent)
     spacecraft->setX(WIDTH/2-200);
     spacecraft->setY(HEIGHT-spacecraft->pixmap().height()-10);
 
-    //alienGenerator(1,1,60,90);
+    alienGenerator(3,10,60,90);
     shieldGenerator(3,6,50,70,10);
     shieldGenerator(3,6,50,70,540);
 
